@@ -1,7 +1,5 @@
 ---
-- hosts: tor-relays
-  user: human
-  connection: ssh
+- hosts: all
   roles:
 # XXX uber-paranoid openssh ansible role?
 #    - { role: ansible-openssh-hardened,
@@ -15,12 +13,14 @@
 #        sudo: yes
 #      }
     - { role: ansible-tor,
-        tor_distribution_release: "tor-experimental-0.2.5.x-wheezy",
         tor_BridgeRelay: 1,
-        tor_PublishServerDescriptor: "bridge",
+        tor_PublishServerDescriptor: "0",
         tor_ExtORPort: "auto",
-        tor_ORPort: 9001,
-        tor_ServerTransportPlugin: "obfs4 exec /usr/bin/obfs4proxy",
+        tor_SocksPort: "0",
+        tor_ORPort: 80,
+        tor_ServerTransportListenAddr: "obfs4 [::]:443",
+        tor_ServerTransportOptions: "obfs4 iat-mode=2",
+        tor_ServerTransportPlugin: "obfs4 exec /usr/bin/obfs4proxy managed",
         tor_ExitPolicy: "reject *:*",
         tor_obfs4proxy_enabled: True,
         sudo: yes

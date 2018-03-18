@@ -6,6 +6,11 @@
   notify:
   - restart tor
 
+- name: set capabilities for Tor binary
+  capabilities:
+    path=/usr/bin/tor
+    capability=cap_net_bind_service=+ep
+
 - meta: flush_handlers
 
 - name: ensure tor is running

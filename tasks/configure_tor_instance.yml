@@ -1,5 +1,10 @@
 ---
 
+- name: set capabilities for Tor binary
+  capabilities:
+    path=/usr/bin/tor
+    capability=cap_net_bind_service=+ep
+
 - name: ensure tor instance parent dir exists
   file: >
     path={{ tor_instance_parent_dir }}
@@ -45,3 +50,4 @@
 - name: ensure tor instances are running
   shell: "kill -0 `cat {{ tor_instance_parent_dir }}/{{ item.name }}/tor.pid` || tor -f {{ tor_instance_parent_dir }}/{{ item.name }}/torrc"
   with_items: proc_instances
+

@@ -1,5 +1,6 @@
 ---
 
+tor_distribution_release: stretch
 tor_instance_parent_dir: /etc/tor/instances
 tor_user: debian-tor
 tor_DataDirectory: /var/lib/tor

@@ -1,11 +1,9 @@
 Ansible Tor
 ===========
 
-I'm not maintaining this project anymore... so you should instead use Nusenu's good work here:
-https://github.com/nusenu/ansible-relayor
-
-
 This is an Ansible role for use with Tor - https://www.torproject.org/
+
+**I think you should know what are you doing if are using this**
 
 I hope that relay operators will find this useful for deploying
 and maintaining large numbers of Tor relays and bridges with
@@ -29,6 +27,8 @@ inventory file. I could have many other host groups defined in the
 inventory as well such as: tor-exit-relays, tor-bridges,
 tor-bananaphone-bridges, tor-hidden-tahoe-storage-nodes etc.
 
+**Note:**  this project is not maintained anymore... so you should instead use Nusenu's good work here:
+https://github.com/nusenu/ansible-relayor
 
 
 Requirements
