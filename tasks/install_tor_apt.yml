@@ -5,6 +5,7 @@
   with_items:
     - python-apt
     - python-pycurl
+    - libcap2-bin
 
 
 - name: install tor project apt signing gpg key
