@@ -14,10 +14,11 @@
     group=root
     mode=0644
 
+- name: ensure obfs4proxy is installed
+  apt: pkg=obfs4proxy state=latest
+
 - name: set capabilities for obfproxy
   capabilities:
     path=/usr/bin/obfs4proxy
     capability=cap_net_bind_service=+ep
 
-- name: ensure obfs4proxy is installed
-  apt: pkg=obfs4proxy state=latest
